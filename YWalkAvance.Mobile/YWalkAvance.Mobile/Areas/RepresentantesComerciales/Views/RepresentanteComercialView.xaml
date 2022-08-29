@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend.Mobile.Areas.RepresentantesComerciales.Views.RepresentanteComercialView"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame Padding="15">
+            <StackLayout>
+                <StackLayout>
+                    <Image HeightRequest="35" WidthRequest="35" HorizontalOptions="StartAndExpand" Source="user.png"></Image>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Representante Comercial " TextColor="#2164AE" FontFamily="OpenSans-Semibold" FontSize="Large" StyleClass="LabelBoldBlue" HorizontalOptions="StartAndExpand"></Label>
+                    <ImageButton Source="close.png" Margin="0,0,0,0" WidthRequest="15" HeightRequest="15" Command="{Binding ExitPopupCommand}" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand"></ImageButton>
+                </StackLayout>
+                <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                       <RowDefinition Height="Auto"></RowDefinition>
+                       <RowDefinition Height="Auto"></RowDefinition>
+                       <RowDefinition Height="Auto"></RowDefinition>
+                       <RowDefinition Height="Auto"></RowDefinition>
+                       <RowDefinition Height="Auto"></RowDefinition>
+                       <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="Nombre y Apellido" Grid.Column="0" Grid.Row="0" TextColor="#777777" FontFamily="OpenSans-Regular" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="175" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Label x:Name="NombreApellido"  Grid.Column="0" Grid.Row="1" TextColor="Black" FontFamily="OpenSans-Semibold" HorizontalOptions="Center" FontAttributes="Bold" VerticalOptions="Center" WidthRequest="175" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Label Text="Usuario" Grid.Column="0" Grid.Row="2" TextColor="#777777" FontFamily="OpenSans-Regular" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="175" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Label x:Name="Usuario" Grid.Column="0" Grid.Row="3" TextColor="Black" FontFamily="OpenSans-Semibold" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <!--<Label Text="Unidad de Negocio" Grid.Column="0" Grid.Row="4" TextColor="#777777" FontFamily="OpenSans-Regular" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="175" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Label x:Name="UnidadNegocio" Grid.Column="0" Grid.Row="5" TextColor="Black" FontFamily="OpenSans-Semibold" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />-->
+                    <!--<Label Text="ID" Grid.Column="1" Grid.Row="0" TextColor="#777777" HorizontalOptions="Center" FontFamily="OpenSans-Regular" VerticalOptions="Center" WidthRequest="175" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Label x:Name="ID" Grid.Column="1" Grid.Row="1" TextColor="Black" HorizontalOptions="Center" FontFamily="OpenSans-Semibold" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />-->
+                </Grid>
+                <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand" ></BoxView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Label Text="Versión: " HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Label x:Name="VersionApp" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Button Text="CERRAR" BackgroundColor="White" FontFamily="OpenSans-Semibold" TextColor="#444444" WidthRequest="130" Command="{Binding ExitPopupCommand}" BorderWidth="1" BorderColor="#444444"></Button>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

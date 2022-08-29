@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Bootstrapper</RootNamespace>
+    <AssemblyName>Bootstrapper</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.11.7" />
+    <PackageReference Include="Unity.RegistrationByConvention" Version="5.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YWalkAvance.Commons\Commons.csproj" />
+    <ProjectReference Include="..\YWalkAvance.Mobile\YWalkAvance.Mobile\Frontend.Mobile.csproj" />
+    <ProjectReference Include="..\YWalkAvance.Business\Business.csproj" />
+  </ItemGroup>
+
+</Project>

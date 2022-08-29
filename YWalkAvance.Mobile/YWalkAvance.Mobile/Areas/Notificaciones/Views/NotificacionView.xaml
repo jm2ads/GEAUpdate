@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend.Mobile.Areas.Notificaciones.Views.NotificacionView"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame Padding="10">
+            <StackLayout Orientation="Vertical" BackgroundColor="White" WidthRequest="300">
+                <Image Source="{Binding ImageNotification}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                <Label Text="{Binding TitleText}" FontSize="Large" TextColor="#000000" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontFamily="OpenSans-Semibold"/>
+                <Label Text="{Binding NotificationText}" FontSize="Medium" LineBreakMode="WordWrap" TextColor="#333333" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="OpenSans-Regular" />
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20">
+                    <Button Text="{Binding BtnTextNotificationCancel}" BorderColor="Black" BorderWidth="1" IsVisible="{Binding HasTextCancel}" WidthRequest="120" Command="{Binding CommandNotificacionCancel}" BackgroundColor="White" TextColor="Gray" FontFamily="OpenSans-Semibold"></Button>
+                    <Button Text="{Binding BtnTextNotificationOK}" Command="{Binding CommandNotificacionOK}" BackgroundColor="#009DBD" WidthRequest="120" TextColor="White" FontFamily="OpenSans-Semibold"></Button>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

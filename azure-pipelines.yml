@@ -1,0 +1,79 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+parameters:
+- name: buildConfiguration
+  displayName: Ambiente
+  type: string
+  default: Release
+  values:
+  - Testing
+  - Release
+- name: distributeAndroid
+  displayName: Android
+  type: boolean
+  default: true
+- name: distributeIOS
+  displayName: IOS
+  type: boolean
+  default: true
+- name: releaseNotes
+  displayName: 'Descripcion de la publicacion'
+  type: string
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: Ingenieria de Desarrollo/Pipelines
+
+trigger: none
+
+variables:
+- group: App
+
+jobs:
+# definicion de la ruta dentro del repositorio especificado
+- template: Build/xamarin-template.yml@templates  # Template reference
+  parameters:
+    # applies both android and ios builds at once
+    buildConfiguration: ${{ parameters.buildConfiguration }}
+    signAPP: true
+
+    # droid build params
+    droidBuild: true
+    apkKeystoreFile: '$(AndroidKeystoreFile)'
+    apkKeystorePassword: '$(AndroidKeystorePass)'
+    appKeystoreAlias: '$(AndroidKeystoreAlias)'
+    appKeyPassword: '$(AndroidKeyPass)'
+
+    # distribute android parameters
+    distributeAndroid: ${{parameters.distributeAndroid}}
+    appCenterEndpointAndroid: '$(AppCenterServiceConnection)'
+    appSlugAndroid: '$(AndroidAppSlug)'
+    releaseNotesAndroid: '${{parameters.releaseNotes}}'
+    distributeGroupIdAndroid: '$(AndroidGroupID)'
+
+    # ios build params
+    iosBuild: true
+    xamarinSdk: '5_18_1'
+    appleCertificate: '$(IOSCertificateFile)'
+    appleCertPwd: '$(IOSCertificatePass)'
+    provisioningProfile: '$(IOSProvisioningFile)'
+    
+    # distribute ios parameters
+    distributeIOS: ${{parameters.distributeIOS}}
+    appCenterEndpointIOS: '$(AppCenterServiceConnection)'
+    appSlugIOS: '$(IOSAppSlug)'
+    releaseNotesIOS: '${{parameters.releaseNotes}}'
+    distributeGroupIdIOS: '$(IOSGroupID)'
+
+    # sonar params
+    projectKey: 'gearrpp.mobile.net'
+    projectName: 'GEA RRPP Mobile'
+    sonarEndpoint: SonarMAG
+
+    # Pool a utilizar en la ejecución de las tasks.
+    pool:
+      vmImage: 'macOS-10.14'

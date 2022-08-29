@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend.Mobile.Areas.Sync.Views.SyncView"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame Padding="50">
+            <StackLayout>
+                <ProgressBar x:Name="BarraDeProgreso" WidthRequest="80" Scale="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                <StackLayout HorizontalOptions="Center">
+                    <Label x:Name="EtapaProceso" Text="Obteniendo Base De Datos" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="175" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Label x:Name="ItemProcesado" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

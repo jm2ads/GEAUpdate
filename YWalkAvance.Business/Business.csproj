@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YWalkAvance.Commons\Commons.csproj" />
+    <ProjectReference Include="..\YWalkAvance.RestServices\Services.csproj" />
+    <ProjectReference Include="..\YWalkAvance.Storage\Storage.csproj" />
+  </ItemGroup>
+
+</Project>

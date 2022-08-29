@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend.Mobile.Areas.SyncDialog.Views.SyncDialogView"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame Padding="10">
+            <StackLayout Orientation="Vertical">
+                <Image Source="{Binding ImageNotification}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                <Label Text="{Binding TitleText}" FontSize="Large" FontAttributes="Bold" FontFamily="OpenSans-Semibold" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding SyncronizedInteractionsText}" FontSize="14" IsVisible="{Binding IsVisibleSyncronizedInteractions}" FontFamily="OpenSans-Semibold" TextColor="Black"></Label>
+                <Label Text="{Binding DefaultSyncronizedInteractionsText}" FontSize="14" IsVisible="{Binding IsVisibleDefaultSyncronizedInteractions}" FontFamily="OpenSans-Semibold" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="{Binding DeletedCompetitorsText}" FontSize="14" IsVisible="{Binding IsVisibleDeletedCompetitors}" FontFamily="OpenSans-Semibold" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                <ScrollView VerticalOptions="Fill" IsVisible="{Binding IsVisibleDeletedCompetitors}">
+                    <Label Text="{Binding DeletedInteractions}" FontAttributes="Italic"></Label>
+                </ScrollView>
+                <Label Text="{Binding ErrorInteractionsText}" FontSize="14" IsVisible="{Binding IsVisibleErrorInteractions}" FontFamily="OpenSans-Semibold" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                <ScrollView VerticalOptions="Fill" IsVisible="{Binding IsVisibleErrorInteractions}">
+                    <Label Text="{Binding ErrorInteractions}" FontAttributes="Italic"></Label>
+                </ScrollView>
+                <Button Text="{Binding BtnOKText}" Command="{Binding OKButtonCommand}" HorizontalOptions="CenterAndExpand" BorderColor="Black" BorderWidth="1" BackgroundColor="White" TextColor="Gray" FontFamily="OpenSans-Semibold" WidthRequest="80"></Button>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</pages:PopupPage>

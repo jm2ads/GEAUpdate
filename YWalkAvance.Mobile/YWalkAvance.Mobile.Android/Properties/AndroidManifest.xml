@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="5.13" package="com.ypf.gearrpp2" android:installLocation="auto" android:versionCode="513">
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<application android:allowBackup="false" android:label="Relevamiento de Precios" android:icon="@drawable/mainIcon"></application>
+</manifest>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend.Mobile.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">#2164AE</Color>
+            <Color x:Key="PrimaryLight">#2164AE</Color>
+            <!-- Oscuro -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            
+            <OnPlatform x:Key="FontFamilyBold" x:TypeArguments="x:String" iOS="Roboto-Bold" Android="Roboto-Bold.ttf#Roboto-Bold" />
+            
+            <Style x:Key="SpinnerMessage" TargetType="{x:Type Label}">
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryLight}"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+            </Style>
+
+            <Style TargetType="Label" Class="LabelBoldBlue">
+                <Setter Property="TextColor" Value="#265271" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyBold}" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

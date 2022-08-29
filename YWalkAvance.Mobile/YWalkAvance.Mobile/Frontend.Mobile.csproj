@@ -1,0 +1,127 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Din\din-bold.ttf" />
+    <None Remove="Resources\Fonts\Din\din-light.ttf" />
+    <None Remove="Resources\Fonts\Din\din-medium.ttf" />
+    <None Remove="Resources\Fonts\Din\din-regular.ttf" />
+    <None Remove="Resources\Fonts\Open Sans\OpenSans-Bold.ttf" />
+    <None Remove="Resources\Fonts\Open Sans\OpenSans-Light.ttf" />
+    <None Remove="Resources\Fonts\Open Sans\OpenSans-Regular.ttf" />
+    <None Remove="Resources\Fonts\Open Sans\OpenSans-Semibold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Din\din-bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Din\din-light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Din\din-medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Din\din-regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Open Sans\OpenSans-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Open Sans\OpenSans-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Open Sans\OpenSans-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Open Sans\OpenSans-Semibold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="akavache" Version="7.1.1" />
+    <PackageReference Include="Fody" Version="6.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="PCLStorage" Version="1.0.2" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.3.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.6" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageReference Include="Unity" Version="5.11.7" />
+    <PackageReference Include="Xam.Plugin.Iconize" Version="3.5.0.129" />
+    <PackageReference Include="Xam.Plugin.Iconize.FontAwesome" Version="3.5.0.129" />
+    <PackageReference Include="Xam.Plugin.PopupMenu" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.8.0.1560" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\YWalkAvance.Commons\Commons.csproj" />
+    <ProjectReference Include="..\..\YWalkAvance.Business\Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Areas\Competidores\Views\CompetidoresView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\Componentes\Views\PickerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\Login\Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\Notificaciones\Views\NotificacionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\Obra\Views\ObraView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\Precios\Views\CargaPreciosView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\RepresentantesComerciales\Views\RepresentanteComercialView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\SyncDialog\Views\SyncDialogView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Areas\Sync\Views\SyncView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SpinnerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ItemDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ItemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MenuPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\NewItemPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\SpinnerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>

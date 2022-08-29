@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Frontend.Mobile.Commons.Components"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="Frontend.Mobile.Areas.Competidores.Views.CompetidoresView"
+             NavigationPage.HasBackButton="False">
+    <NavigationPage.TitleView>
+        <Label Text="Relevamiento de Precios" FontFamily="din-medium" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold" TextColor="White"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Acerca del RRCC" Command="{Binding DoAboutRRCCCommand}" Order="Secondary"/>
+        <ToolbarItem Text="Cerrar Sesión" Command="{Binding DoCloseSessionCommand}" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="White">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Grid Margin="0,12,12,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <custom:CustomSearchBar x:Name="InputSearch" Grid.Column="0" Grid.Row="0" TextChanged="InputSearch_TextChanged" HorizontalOptions="StartAndExpand" WidthRequest="310" Placeholder="Buscar por APIES, Razón Social o Bandera" FontSize="12" TextColor="#444444" BackgroundColor="White" FontFamily="OpenSans-Regular">
+                        <custom:CustomSearchBar.Effects>
+                            
+                        </custom:CustomSearchBar.Effects>
+                    </custom:CustomSearchBar>
+                    <ImageButton Grid.Column="1" Grid.Row="0" x:Name="PickerState" BackgroundColor="Transparent" Command="{Binding DoCustomPickerTestCommand}" Source="statefilter.png" HorizontalOptions="EndAndExpand"></ImageButton>
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Lista de Competidores" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="15,0,0,0" TextColor="#2164AE" FontAttributes="Bold" FontSize="Medium" FontFamily="din-bold">
+                        <Label.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="15, 0, 0, 0" />
+                                <On Platform="Android" Value="25, 0, 0, 0" />
+                            </OnPlatform>
+                        </Label.Margin>
+                    </Label>
+                    <ImageButton x:Name="BtnNuevoRelevamiento" Scale="1" Grid.Column="1" Grid.Row="0" WidthRequest="40" HeightRequest="40" Source="nuevoRelevamiento.png" Command="{Binding DoThreeDottedMenuCommand}" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand">
+                        <ImageButton.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="0, 0, 20, 0"/>
+                                <On Platform="Android" Value="0, 0, 15, 0"/>
+                            </OnPlatform>
+                        </ImageButton.Margin>
+                    </ImageButton>
+                    <ImageButton x:Name="BtnEnviarCompetidores" Scale="1" Grid.Column="2" Grid.Row="0" WidthRequest="40" HeightRequest="40" Source="enviarGEA.png" Command="{Binding DoSendCompetitorsCommand}" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand">
+                        <ImageButton.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="0, 0, 20, 0"/>
+                                <On Platform="Android" Value="0, 0, 15, 0"/>
+                            </OnPlatform>
+                        </ImageButton.Margin>
+                    </ImageButton>
+                </Grid>
+            </StackLayout>
+            <StackLayout BackgroundColor="{Binding BackgroundColorHeader}" Margin="2,5,2,0">
+                <StackLayout IsVisible="{Binding IsEmptyListView}">
+                    <Image Source="warning.png" Margin="0,8,0,8" Scale="1.2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
+                    <Label Text="{Binding EmptyListViewText}" HorizontalOptions="CenterAndExpand" TextColor="#333333" FontAttributes="Bold" FontSize="Medium" FontFamily="OpenSans-Semibold"></Label>
+                </StackLayout>
+                <BoxView BackgroundColor="Black" IsVisible="{Binding IsHeaderShowing}" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid IsVisible="{Binding IsHeaderShowing}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0">
+                        <Label Text="APIES" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Small" TextColor="#333333" FontFamily="OpenSans-Semibold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="upArrow.png" HeightRequest="8" WidthRequest="8" IsVisible="{Binding IsDoubleTapAPIES}"></Image>
+                            <Image Source="downArrow.png" HeightRequest="8" WidthRequest="8" IsVisible="{Binding IsTappedAPIES}"></Image>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0">
+                        <Label Text="Razón Social" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Small" TextColor="#333333" FontFamily="OpenSans-Semibold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="upArrow.png" HeightRequest="8" WidthRequest="8" IsVisible="{Binding IsDoubleTapRazonSocial}"></Image>
+                            <Image Source="downArrow.png" HeightRequest="8" WidthRequest="8" IsVisible="{Binding IsTappedRazonSocial}"></Image>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Grid.Column="2" Grid.Row="0">
+                        <Label Text="Estado" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Small" TextColor="#333333" FontFamily="OpenSans-Semibold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="upArrow.png" HeightRequest="8" WidthRequest="8" IsVisible="{Binding IsDoubleTapEstado}"></Image>
+                            <Image Source="downArrow.png" HeightRequest="8" WidthRequest="8" IsVisible="{Binding IsTappedEstado}"></Image>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView BackgroundColor="White" Opacity="0.4" HeightRequest="8" WidthRequest="10" HorizontalOptions="FillAndExpand"></BoxView>
+                </Grid>
+                <BoxView BackgroundColor="Black" IsVisible="{Binding IsHeaderShowing}" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+            </StackLayout>
+            <ListView x:Name="CompetidoresListView" HasUnevenRows="True" ItemsSource="{Binding Items}" SeparatorVisibility="Default" SeparatorColor="Violet" Margin="2,0,2,5" ItemTapped="CompetidoresListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid VerticalOptions="FillAndExpand" BackgroundColor="White" HorizontalOptions="FillAndExpand" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="15*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding Bandera,StringFormat='Bandera{0}.png'}" Scale="1" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"></Image>
+                                <Label Text="{Binding APIES}" TextColor="#444444" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" LineBreakMode="WordWrap" Grid.Column="1" Grid.Row="0" FontFamily="OpenSans-Regular"></Label>
+                                <Label Text="{Binding RazonSocial}" TextColor="#444444" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Margin="4,0,4,0" LineBreakMode="WordWrap" Grid.Column="2" Grid.Row="0" FontFamily="OpenSans-Regular"></Label>
+                                <Image Source="{Binding StateIcon}" Scale="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="3" Grid.Row="0"></Image>
+                                <ImageButton Source="syncSingle.png" IsVisible="{Binding IsPendingToSyncCompetitor}" Opacity="{Binding OpacityDisabledEnabled}" CommandParameter="{Binding InterComercial}" Padding="0,0,8,0" Clicked="ImageButton_Clicked" Scale="1" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="4" Grid.Row="0"></ImageButton>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Label/>
+                </ListView.Footer>
+            </ListView>
+            <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+            <StackLayout Orientation="Vertical" VerticalOptions="End">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Button x:Name="BtnSincronizarPrecios" TextColor="White" Margin="4,8,4,8" HorizontalOptions="FillAndExpand" Text="SINCRONIZAR DATOS" BackgroundColor="#009DBD" FontAttributes="Bold" Command="{Binding DoSyncCommand}" FontFamily="OpenSans-Semibold"></Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

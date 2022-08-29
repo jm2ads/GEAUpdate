@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend.Mobile.Areas.Componentes.Views.PickerView"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Frame Padding="6">
+                <StackLayout>
+                <Label Text="Seleccione una opción..." FontFamily="OpenSans-Semibold" FontSize="Large" StyleClass="LabelBoldBlue" HorizontalOptions="StartAndExpand" TextColor="#000000"></Label>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                        <StackLayout Orientation="Vertical" Grid.Row="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding OpcionTodosImage}" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" WidthRequest="50" />
+                                <Label Text="{Binding OpcionTodos}" Grid.Column="1" Grid.Row="0" TextColor="#333333" FontSize="Small" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="CenterAndExpand" WidthRequest="175" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontFamily="OpenSans-Regular" />
+                                <Image Source="{Binding SelectedOptionIcon}" Grid.Column="2" Grid.Row="0" IsVisible="{Binding IsOptionTodosSelected}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+                            </Grid>
+                            <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" Grid.Row="1">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding OpcionSincronizadosImage}" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" WidthRequest="50"/>
+                            <Label Text="{Binding OpcionSincronizados}" Grid.Column="1" Grid.Row="0" TextColor="#333333" FontSize="Small" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontFamily="OpenSans-Regular" />
+                                <Image Source="{Binding SelectedOptionIcon}" Grid.Column="2" Grid.Row="0" IsVisible="{Binding IsOptionSincronizadosSelected}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+                            </Grid>
+                            <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" Grid.Row="2">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding OpcionPendienteSincronizarImage}" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" WidthRequest="50" />
+                            <Label Text="{Binding OpcionPendienteSincronizar}" Grid.Column="1" Grid.Row="0" TextColor="#333333" FontSize="Small" HorizontalOptions="StartAndExpand" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontFamily="OpenSans-Regular" />
+                                <Image Source="{Binding SelectedOptionIcon}" Grid.Column="2" Grid.Row="0" IsVisible="{Binding IsOptionPendienteSincronizarSelected}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+                            </Grid>
+                            <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" Grid.Row="3">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding OpcionErrorSincronizarImage}" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" WidthRequest="50" />
+                            <Label Text="{Binding OpcionErrorSincronizar}" Grid.Column="1" Grid.Row="0" TextColor="#333333" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontFamily="OpenSans-Regular" />
+                                <Image Source="{Binding SelectedOptionIcon}" Grid.Column="2" Grid.Row="0" IsVisible="{Binding IsOptionErrorSincronizarSelected}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+                            </Grid>
+                            <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                        </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical" Grid.Row="4">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                        </StackLayout.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding OpcionManualImage}" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" WidthRequest="50" />
+                            <Label Text="{Binding OpcionManual}" Grid.Column="1" Grid.Row="0" TextColor="#333333" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontFamily="OpenSans-Regular" />
+                            <Image Source="{Binding SelectedOptionIcon}" Grid.Column="2" Grid.Row="0" IsVisible="{Binding IsOptionManualSelected}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+                        </Grid>
+                        <BoxView BackgroundColor="Black" Opacity="0.4" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                    </StackLayout>
+
+
+
+
+
+                </Grid>
+                <Button Text="{Binding BtnTextPickerOK}" HorizontalOptions="CenterAndExpand" Command="{Binding CommandPickerOK}" BorderColor="#444444" FontFamily="OpenSans-Semibold" BorderWidth="1" BackgroundColor="White" FontAttributes="Bold" TextColor="#444444" WidthRequest="80" ></Button>
+            </StackLayout>
+            </Frame>
+        </StackLayout>
+</pages:PopupPage>
